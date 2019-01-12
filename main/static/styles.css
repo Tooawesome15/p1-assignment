@@ -1,0 +1,668 @@
+@import url('https://fonts.googleapis.com/css?family=Chakra+Petch|Open+Sans|Poiret+One');
+
+html {
+    /*font-family: 'Poiret One', cursive;*/
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Chakra Petch', sans-serif;*/
+}
+
+body {
+    /*border: solid;*/
+    margin: 0;
+    margin-left: 15%;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+/* Left Navigation
+---------------------------------*/
+#leftNav {
+    /*border: gold solid;*/
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.5s;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#leftNav a {
+    text-decoration: none;
+}
+
+#leftNav a, #leftNav p {
+    color: black;
+}
+
+#leftNav > div {
+    /*border: solid;*/
+    margin: 20px 15px;
+}
+
+#leftNav > div > a, #leftNav > div > p {
+    margin: 0;
+    font-size: 150%;
+}
+
+#leftNav > div > ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/*#leftNavStalls > div > ul {
+    margin: 0;
+    padding-left: 20px;
+}*/
+/*
+#leftNavStalls > div {
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+/*#leftNavProfile {
+    border: solid;
+}
+
+#leftNavProfile > div {
+    display: flex;
+    flex-direction: column;
+}*/
+
+.leftNavToggle {
+    position: initial;
+}
+
+/* Top Navigation
+---------------------------------*/
+#topNav {
+    /*border: solid;*/
+    background-color: mistyrose;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    transition: all 0.5s;
+
+    font-family: 'Poiret One', cursive;
+}
+
+#topNavMenu {
+    display: none;
+    font-size: 150%;
+}
+
+#topNavSearch input {
+    height: 150%;
+}
+
+#topNavSearch i {
+    font-size: 150%;
+}
+
+/* Page Title
+---------------------------------*/
+#pageTitle {
+    text-align: center;
+    display: none;
+}
+
+/* Flash Error Messages
+---------------------------------*/
+#errorMessages {
+    margin: 10px;
+}
+
+#errorMessages > div {
+    margin: 5px;
+    text-align: center;
+    color: red;
+}
+
+/* Estimated Queue Time
+---------------------------------*/
+#queueTime {
+    /*border: solid;*/
+
+    text-align: center;
+
+    font-size: 125%;
+}
+
+/* List of Stalls
+---------------------------------*/
+#stallList {
+    /*border: solid;*/
+    margin: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 10px 10px;
+    justify-content: center;
+
+    transition: all 0.5s;
+}
+
+#stallList > div {
+    /*border: solid;*/   
+}
+
+#stallList > div > img {
+    width: 100%;
+}
+
+#stallList > div > p {
+    margin: 2px auto;
+    text-align: center;
+}
+
+/* List of Food
+---------------------------------*/
+#foodList {
+    /*border: solid;*/
+    width: 80%;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 10px;
+}
+
+.foodItem {
+    /*border: solid;*/
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.foodItem p {
+    margin: 0;
+}
+
+.foodItem > img {
+    height: 100%;
+}
+
+.foodItem > div {
+    /*border: solid;*/
+    box-sizing: border-box;
+    /*margin-left: 10px;*/
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.foodItemHeader {
+    /*border: solid;*/    
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.foodItemHeader > p:first-child {
+    /*border: solid;*/
+    flex: 0 1 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.foodItemHeader > p:last-child {
+    /*border: solid;*/
+    flex: 0 0 auto;
+}
+
+.foodItemDescription {
+    /*border: solid;*/
+    margin: 2px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;  
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    font-size: 75%;
+    font-style: italic;
+}
+
+.foodItemFooter {
+    /*border: solid;*/
+    display: flex;
+    justify-content: space-between;
+    font-size: 85%;
+}
+
+/* Edit Menu
+---------------------------------*/
+#foodList > div {
+    /*border: solid;*/
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.foodItemHeaderEdit {
+    /*border: solid;*/
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.foodItemHeaderEdit > div:first-child {
+    flex: 1 1 auto;
+    margin-right: 10px;
+}
+
+.foodItemHeaderEdit > div:first-child > input {
+    width: 100%;
+}
+
+.foodItemHeaderEdit > div:last-child {
+    /*border: solid;*/
+}
+
+.foodItemHeaderEdit > div:last-child > input {
+    width: 50px;
+}
+
+.foodItemDescriptionEdit {
+    /*border: solid;*/
+    width: 100%;
+    
+}
+
+.foodItemDescriptionEdit > textarea {
+    height: 2em;
+    width: 99%;
+
+    resize: none;
+
+    font-size: 85%;
+}
+
+.foodItemFooterEdit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 85%;
+}
+
+.foodItemFooterEdit > div:first-child > input {
+    width: 45px;
+}
+
+.foodItemFooterEdit > div:last-child > input {
+    width: 40px;
+}
+
+.editFoodItem {
+    /*border: solid;*/
+    margin-top: 5px;
+    padding: 0 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editFoodItem > div {
+    /*border: solid;*/
+    width: 220px;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editFoodItem > div > div {
+    margin-left: 30px;
+
+    display: flex;
+    align-items: center;
+}
+
+.editFoodItem > div > div > button {
+    display: flex;
+
+    align-items: center;
+}
+
+.editFoodItem > div > div > div {
+    width: 120px;
+    display: none;  
+    justify-content: space-between;
+}
+
+#foodItemAdder {
+    margin: 20px 10%;
+}
+
+#addFoodItem {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#addFoodItem > div {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* Authentication
+---------------------------------*/
+#auth {
+    border: 5px outset;
+    margin: 20px auto;
+    width: 70%;
+}
+
+#auth > h2 {
+    text-align: center;
+}
+
+#auth > form > div {
+    /*border: solid;*/
+    padding: 5px;
+}
+
+#auth > form > div > label {
+    font-weight: bold;
+}
+
+#auth > form > div > input {
+    width: 99%;
+}
+
+#auth > form > div > span {
+    color: red;
+    font-size: 75%;
+}
+
+#auth > form > input {
+    margin: 10px 5px;
+}
+
+#auth > div {
+    /* border: solid; */
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    color: grey;
+    font-size: 80%;
+}
+
+#auth > div > p {
+    margin: 0 10px 0 0;
+}
+
+/* Operation Menu
+---------------------------------*/
+#operationMenu {
+    /*border: solid;*/
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 240px 240px;
+    grid-template-columns: 400px 400px;
+    grid-template-areas: "incoming accepted" "completed accepted";
+    justify-content: space-between;
+    align-content: space-between;
+    /*grid-column-gap: 150px;*/
+    text-align: center;
+}
+
+#operationMenuIncoming {
+    /*border: solid;*/
+    grid-area: incoming;
+    display: flex;
+    flex-direction: column;
+}
+
+#operationMenuCompleted {
+    /*border: solid;*/
+    grid-area: completed;
+    display: flex;
+    flex-direction: column;
+}
+
+#operationMenuAccepted {
+    /*border: solid;*/
+    grid-area: accepted;
+    display: flex;
+    flex-direction: column;
+}
+
+.operationMenuItemTemplate > h3 {
+    margin-bottom: 5px;
+}
+
+.operationMenuItemTemplate > div {
+    border: solid;
+    margin: 5px;
+    padding: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.operationMenuItemTemplate > div > div {
+    /*border: solid;*/
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.operationMenuItemTemplate > div > div > div {
+    display: flex;
+    justify-content: space-between;
+    width: 75px;
+    font-size: 200%;
+}
+
+/* Order History
+---------------------------------*/
+.orderHistory {
+    /*border: solid;*/
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderHistory > div {
+    /*border: solid gold;*/
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderHistory > div p {
+    margin: 0;
+}
+
+.orderHistory > div > i {
+    /*margin-left: 30px;*/
+}
+
+.orderHistory > div > div {
+    /*border: solid;*/
+    flex: 1 0 auto;
+    display: grid;
+    grid-template:
+        "orderHistoryItem1 orderHistoryItem3 orderHistoryItem2 orderHistoryItem4"
+        / 25% 25% 25% 25%;
+}
+
+.orderHistoryItem1 {
+    /*border: solid;*/
+    grid-area: orderHistoryItem1;
+}
+
+.orderHistoryItem2 {
+    grid-area: orderHistoryItem2;
+}
+
+.orderHistoryItem3 {
+    grid-area: orderHistoryItem3;
+}
+
+.orderHistoryItem4 {
+    grid-area: orderHistoryItem4;
+}
+
+.orderHistoryItem3, .orderHistoryItem4 {
+    font-size: 80%;
+}
+
+/* Stall Settings
+---------------------------------*/
+#stallSettings {
+    width: 70%;
+    margin: 20px auto;
+}
+
+#stallSettings > div:first-child {
+    /* border: solid; */
+    height: 150px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#stallSettings > div:first-child > img {
+    height: 100%;
+    margin-right: 10px;
+}
+
+#stallSettings > div:first-child > div {
+    display: flex;
+    flex-direction: column;
+}
+
+#stallSettings > div:first-child > div > h2 {
+    margin: 0;
+}
+
+#stallSettings > div:first-child > div > h4 {
+    margin: 0;
+}
+
+#stallSettings > div:last-child {
+    border: 5px outset;
+    padding: 5px;
+}
+
+#stallSettings > div:last-child > h4 {
+    margin-bottom: 2px;
+}
+
+#stallSettings > div:last-child > form {
+    /* border: solid; */
+    margin-top: 10px;
+}
+
+#stallSettings > div:last-child > form > div > input {
+    width: 99%;
+}
+
+#stallSettings > div:last-child > form > div > span {
+    color: red;
+    font-size: 75%;
+}
+
+@media screen and (max-width: 640px) {
+    /* Left Navigation
+    ---------------------------------*/
+    body {
+        margin-left: 0;
+    }
+
+    #leftNav {
+        /*display: none;*/
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Top Navigation
+    ---------------------------------*/
+    #topNavMenu {
+        display: initial;
+    }
+
+    #topNavSearch > input {
+        display: none;
+    }
+
+    /* Page Title
+    ---------------------------------*/
+    #pageTitle {
+        display: normal;
+    }
+
+    /* List of Stalls
+    ---------------------------------*/
+    .foodItem {
+        height: auto;
+        flex-direction: column;
+    }
+    
+    .foodItem > img {
+        width: 100%;
+        height: auto;
+    }
+
+    .foodItemDescription {
+        -webkit-line-clamp: 3;
+    }
+
+    /* Order History
+    ---------------------------------*/
+    .orderHistory > div > i {
+        margin-left: 30px;
+        font-size: 125%;
+    }
+
+    .orderHistory > div > div {
+        grid-template: 
+            "orderHistoryItem1 orderHistoryItem2" 
+            "orderHistoryItem3 orderHistoryItem4";
+    }
+
+    .orderHistoryItem2, .orderHistoryItem4 {
+        text-align: right;
+    }
+
+    .orderHistoryItem3, .orderHistoryItem4 {
+        font-size: 80%;
+    }
+}

@@ -1,0 +1,65 @@
+{% extends "stall/stall-base-template.html" %}
+
+{% block content %}
+<script src="../../static/scripts-edit-menu.js" defer></script>
+<div id="foodList"></div>
+<div id="foodItemAdder">
+    <div class="foodItem">
+        <img srcset="{{ url_for('static', filename = 'images/blank/medium.webp') }}" />
+        <div>
+            <div class="foodItemHeaderEdit">
+                <div><input placeholder="Food Name" /></div>
+                <div>$<input placeholder="Price" type="number" step="0.01" min="0" max="99.99"/></div>
+            </div>
+            <div class="foodItemDescriptionEdit">
+                <textarea maxlength="200" placeholder="Description"></textarea>
+            </div>
+            <div class="foodItemFooterEdit">
+                <div>Calorie: <input type="number" step="1" min="0" max="9999"/> kcal</div>
+                <div>Preparation Time: <input type="number" step="0.5" min="0" max="99"/> mins</div>
+            </div>
+        </div>
+    </div>
+    <div id="addFoodItem">
+        <input type="file" accept="image/*" onchange="updateImagePreview(this)"/>
+        <div>
+            <button onclick="clickResetAddFoodItem(this)">Reset</button>
+            <button onclick="clickAddAddFoodItem(this)">Add</button>
+        </div>
+    </div>
+</div>
+
+<div id="foodItemTemplate" style="display:none;">
+    <div>
+        <div class="foodItem">
+            <img srcset="{{ url_for('static', filename = 'images/blank/medium.webp') }}" />
+            <div>
+                <div class="foodItemHeaderEdit">
+                    <div><input disabled placeholder="Food Name" /></div>
+                    <div>$<input disabled placeholder="Price" type="number" step="0.01" min="0" max="99.99"/></div>
+                </div>
+                <div class="foodItemDescriptionEdit">
+                    <textarea disabled maxlength="200" placeholder="Description"></textarea>
+                </div>
+                <div class="foodItemFooterEdit">
+                    <div>Calorie: <input disabled type="number" min="0" max="9999"/> kcal</div>
+                    <div>Preparation Time: <input disabled type="number" step="0.1" min="0" max="99"/> mins</div>
+                </div>
+            </div>
+        </div>
+        <div class="editFoodItem">
+            <input type="file" accept="image/*" onchange="updateImagePreview(this)"/>
+            <div>
+                <button onclick="clickRemoveFoodItem(this)">Remove</button>
+                <div>
+                    <button onclick="clickEditFoodItem(this)">Edit</button>
+                    <div>
+                        <button onclick="clickSaveEditFoodItem(this)">Save</button>
+                        <button onclick="clickCancelEditFoodItem(this)">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}

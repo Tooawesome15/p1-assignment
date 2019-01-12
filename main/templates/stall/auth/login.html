@@ -1,0 +1,29 @@
+{% extends "stall/stall-base-template.html" %}
+
+{% block content %}
+<div id="auth">
+    <h2>Log In</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.stall_name.label }}
+            {{ form.stall_name }}
+            {% if form.stall_name.errors %}
+                {% for error in form.stall_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br /><br />
+            {{ form.password.label }}
+            {{ form.password }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br>
+        </div>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock content %}

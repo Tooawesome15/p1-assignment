@@ -1,0 +1,25 @@
+{% extends 'user/user-base-template.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='scripts-user-history.js') }}" defer></script>
+<div id="currentOrderHistory" class="orderHistory"></div>
+<div id="orderHistoryItemTemplate" style="display:none">
+    <div>
+        <div>
+            <div class="orderHistoryItem1">
+                <p></p>
+            </div>
+            <div class="orderHistoryItem2">
+                <p></p>
+            </div>
+            <div class="orderHistoryItem3">
+                <p></p>
+            </div>
+            <div class="orderHistoryItem4">
+                <p>~</p>
+            </div>
+        </div>
+        <i class="fa fa-times-circle"></i>
+    </div>
+</div>
+{% endblock content %}

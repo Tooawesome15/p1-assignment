@@ -1,0 +1,32 @@
+{% extends 'user/user-base-template.html' %}
+
+{% block content %}
+<div id="auth">
+    <h2>Log In</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.user_name.label }}
+            {{ form.user_name }}
+            {% if form.user_name.errors %}
+                {% for error in form.user_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br /><br />
+            {{ form.password.label }}
+            {{ form.password }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br>
+        </div>
+        {{ form.submit }}
+    </form>
+    <div>
+        <p>Don't have an Account?</p><a href="{{ url_for('user_register') }}">Register</a>
+    </div>
+</div>
+{% endblock content %}

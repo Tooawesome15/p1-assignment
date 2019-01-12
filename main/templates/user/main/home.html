@@ -1,0 +1,13 @@
+{% extends 'user/user-base-template.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='scripts-home.js') }}" defer></script>
+<div id="stallList">
+    {% for stall in stalls %}
+        <div onclick="clickStall({{ stall.stall_id }})">
+            <img srcset="{{ url_for('static', filename='images/stall-pictures/' + stall.stall_pic) }}">
+            <p><strong>{{ stall.stall_name }}</strong></p>
+        </div>
+    {% endfor%}
+</div>
+{% endblock content %}

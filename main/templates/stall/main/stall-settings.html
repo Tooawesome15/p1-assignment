@@ -1,0 +1,49 @@
+{% extends 'stall/stall-base-template.html' %}
+
+{% block content %}
+
+<div id="stallSettings">
+    <div>
+        <img src="{{ url_for('static', filename='images/stall-pictures/' + current_user.stall_pic) }}" />
+        <div>
+            <h2>{{ current_user.stall_name }} Food Stall</h2>
+            <h4>@ Food Club</h4>
+        </div>
+    </div>
+    <div>
+        <h4>Profile Info</h4>
+        <hr>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <div>
+                {{ form.hidden_tag() }}
+                {{ form.stall_name.label }}
+                {{ form.stall_name }}
+                {% if form.stall_name.errors %}
+                    {% for error in form.stall_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <br><br>
+                {{ form.bank_account_no.label }}
+                {{ form.bank_account_no }}
+                {% if form.bank_account_no.errors %}
+                    {% for error in form.bank_account_no.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <br><br>
+                {{ form.stall_pic.label }}
+                {{ form.stall_pic }}
+                {% if form.stall_pic.errors %}
+                    {% for error in form.stall_pic.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <br><br>
+            </div>
+            {{ form.submit }}
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

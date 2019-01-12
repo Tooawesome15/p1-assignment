@@ -1,0 +1,31 @@
+{% extends 'user/user-base-template.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='scripts-menu.js') }}" defer></script>
+
+<div id="queueTime">
+    <p>Estimated Queue Time: ~</p>
+</div>
+
+<div id="foodList">
+    {% for food in menu %}
+        <div onclick="clickFoodItem({{ food.food_id }}, '{{ food.food_name }}')">
+            <div class="foodItem">
+                <img srcset="{{ url_for('static', filename='images/food-pictures/' + food.food_pic) }}" />
+                <div>
+                    <div class="foodItemHeader">
+                        <p>{{ food.food_name }}</p>
+                        <p>${{ food.price }}</p>
+                    </div>
+                    <p class="foodItemDescription">
+                        {{ food.description }}
+                    </p>
+                    <div class="foodItemFooter">
+                        <p>Calorie: {{ food.calorie }} kcal</p>
+                        <p>Preparation Time: {{ food.preperation_time }} mins</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

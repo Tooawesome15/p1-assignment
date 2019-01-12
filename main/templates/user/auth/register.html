@@ -1,0 +1,47 @@
+{% extends 'user/user-base-template.html' %}
+
+{% block content %}
+<div id="auth">
+    <h2>Register</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.user_name.label }}
+            {{ form.user_name }}
+            {% if form.user_name.errors %}
+                {% for error in form.user_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br /><br />
+            {{ form.bank_account_no.label }}
+            {{ form.bank_account_no }}
+            {% if form.bank_account_no.errors %}
+                {% for error in form.bank_account_no.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br /><br />
+            {{ form.password.label }}
+            {{ form.password }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+            <br /><br />
+            {{ form.confirm_password.label }}
+            {{ form.confirm_password }}
+            {% if form.confirm_password.errors %}
+                {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {{ form.submit }}
+    </form>
+    <div>
+        <p>Already have an Account?</p><a href="{{ url_for('user_login') }}">Sign In</a>
+    </div>
+</div>
+{% endblock content %}

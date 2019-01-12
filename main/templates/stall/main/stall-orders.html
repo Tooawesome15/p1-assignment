@@ -1,0 +1,51 @@
+{% extends "stall/stall-base-template.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='scripts-stall-orders.js') }}" defer></script>
+
+<div id="operationMenu">
+    <div id="operationMenuIncoming" class="operationMenuItemTemplate">
+        <h3>Incoming Orders</h3>
+        <div></div>
+    </div>
+    <div id="operationMenuCompleted" class="operationMenuItemTemplate">
+        <h3>Completed Orders</h3>
+        <div></div>
+    </div>
+    <div id="operationMenuAccepted" class="operationMenuItemTemplate">
+        <h3>Accepted Orders</h3>
+        <div></div>
+    </div>
+</div>
+
+<div id="incomingOrderItemTemplate" style="display:none;">
+    <div>
+        <p></p>
+        <div>
+            <i class="fa fa-check-circle-o" onclick="clickAcceptIncoming(this)"></i>
+            <i class="fa fa-times-circle-o" onclick="clickRejectIncoming(this)"></i>
+        </div>            
+    </div>
+</div>
+
+<div id="acceptedOrderItemTemplate" style="display:none;">
+    <div>
+        <p></p>
+        <div>
+            <i class="fa fa-check-circle-o" onclick="clickAcceptAccepted(this)"></i>
+            <i class="fa fa-times-circle-o" onclick="clickRejectAccepted(this)"></i>
+        </div>            
+    </div>
+</div>
+
+<div id="completedOrderItemTemplate" style="display:none;">
+    <div>
+        <p></p>
+        <div>
+            <i class="fa fa-check-circle-o" onclick="clickAcceptCompleted(this)"></i>
+            <i class="fa fa-times-circle-o" onclick="clickRejectCompleted(this)"></i>
+        </div>            
+    </div>
+</div>
+
+{% endblock content %}

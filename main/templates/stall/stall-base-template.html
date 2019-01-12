@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale = 1" />
+</head>
+<body>
+    <header>
+        <div id="overlay" onclick="closeLeftNav()"></div>
+        <div id="leftNav">
+            <div><a href="{{ url_for('stall_dashboard') }}">Dashboard</a></div>
+            <div><a href="{{ url_for('stall_menu') }}">Menu</a></div>
+            <div><a href="{{ url_for('stall_orders') }}">Orders</a></div>
+            <div>
+                <p>Profile</p>
+                <ul>
+                    {% if current_user.is_authenticated and current_user.has_role('Stall') %}
+                        <li><a href="#">Order History</a></li>
+                        <li><a href="#">Statistics</a></li>
+                        <li><a href="{{ url_for('stall_settings') }}">Settings</a></li>
+                        <li><a href="{{ url_for('stall_logout') }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('stall_register') }}">Register</a></li>
+                        <li><a href="{{ url_for('stall_login') }}">Login</a></li>
+                    {% endif %}
+                </ul>
+                
+            </div>
+        </div>
+        <div id="topNav">
+            <span id="topNavMenu" onclick="openLeftNav()"><i class="fa fa-bars"></i></span>
+            <h1>{{ title }}</h1>
+            <div id="topNavSearch">
+                <input />
+                <span><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="errorMessages">
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock content %}
+
+    <footer>
+        
+    </footer>
+</body> 
+</html>
